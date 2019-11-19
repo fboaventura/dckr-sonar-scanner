@@ -1,0 +1,1 @@
+# SonarQube Scanner for GitLab
