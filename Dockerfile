@@ -2,14 +2,15 @@ FROM python:3.7-alpine3.10
 
 ENV SONAR_SCANNER_VERSION 4.2.0.1873
 
+COPY sonar-scanner-runner.sh /usr/bin/
+
 RUN apk add --no-cache wget openjdk9-jre \
     && wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip \
     && unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION} \
     && ln -s /sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner /usr/bin/sonar-scanner \
     && apk del wget \
-    && mkdir /code
-
-COPY sonar-scanner-runner.sh /usr/bin/
+    && mkdir /code \
+    && ln -s /usr/bin/sonar-scanner-runner.sh /usr/bin/sonar-scanner-run
 
 WORKDIR /code
 

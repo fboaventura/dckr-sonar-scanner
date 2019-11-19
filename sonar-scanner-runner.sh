@@ -59,12 +59,6 @@ if [ ! -z "${SONAR_LOGIN+x}" ]; then
   COMMAND="${COMMAND} -Dsonar.login=${SONAR_LOGIN}"
 fi
 
-# analysis by default
-if [ -z "${SONAR_ANALYSIS_MODE+x}" ]; then
-  SONAR_ANALYSIS_MODE="preview"
-fi
-
-COMMAND="${COMMAND} -Dsonar.analysis.mode=${SONAR_ANALYSIS_MODE}"
 if [ "${SONAR_ANALYSIS_MODE}" == "preview" ]; then
   COMMAND="${COMMAND} -Dsonar.issuesReport.console.enable=true"
   COMMAND="${COMMAND} -Dsonar.gitlab.failure_notification_mode=exit-code"
