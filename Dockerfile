@@ -1,10 +1,10 @@
 FROM python:3.7-alpine3.10
 
-ENV SONAR_SCANNER_VERSION 4.2.0.1873
+ENV SONAR_SCANNER_VERSION 4.3.0.2102
 
 COPY sonar-scanner-runner.sh /usr/bin/
 
-RUN apk add --no-cache wget openjdk11-jre ca-certificates java-cacerts \
+RUN apk add --no-cache wget openjdk11-jre ca-certificates java-cacerts nodejs \
     && wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip \
     && unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION} \
     && ln -s /sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner /usr/bin/sonar-scanner \
