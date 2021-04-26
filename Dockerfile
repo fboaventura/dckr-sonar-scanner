@@ -1,6 +1,6 @@
-FROM python:3.7-alpine3.10
+FROM python:3.8-alpine3.10
 
-ENV SONAR_SCANNER_VERSION 4.3.0.2102
+ENV SONAR_SCANNER_VERSION 4.6.0.2311
 
 COPY sonar-scanner-runner.sh /usr/bin/
 
