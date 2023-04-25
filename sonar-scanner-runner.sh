@@ -1,10 +1,10 @@
 #!/bin/sh
 
-if [ -z "${SONAR_URL+x}" ]; then
-  echo 'Undefined "SONAR_URL" env' && exit 1
+if [ -z "${SONAR_HOST_URL+x}" ]; then
+  echo 'Undefined "SONAR_HOST_URL" env' && exit 1
 fi
 
-URL="$SONAR_URL"
+URL="$SONAR_HOST_URL"
 
 COMMAND="sonar-scanner -Dsonar.host.url=${URL}"
 
